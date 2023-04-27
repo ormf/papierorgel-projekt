@@ -2,7 +2,7 @@
 
 (setf *route-presets*
 #((:preset 0 :routes nil)
-  (:preset nil :routes (:orgel01 (:level (n-bias-cos :bias-pos :bias-bw))))
+  (:preset nil :routes (:orgel01 (:level (bias-cos :bias-pos :bias-bw))))
   (:preset nil :routes
            (:orgel01
             (:bias-pos (ccin 0) :bias-bw (ccin 1) :level
@@ -68,15 +68,15 @@
                            (bias-cos :bias-pos :bias-bw :targets
                                      *global-targets*))
               *global-targets*))))
-  (:preset nil :routes (:orgel01 (:level (n-bias-cos (ccin 0) (ccin 1)))))
+  (:preset nil :routes (:orgel01 (:level (bias-cos (ccin 0) (ccin 1)))))
   (:preset nil :routes
            (:orgel01
             (:bias-pos (ccin 0) :bias-bw (ccin 1) :level
-             (n-bias-cos :bias-pos :bias-bw))))
+             (bias-cos :bias-pos :bias-bw))))
   (:preset nil :routes
            (:orgel01
             (:bias-pos (ccin 0) :bias-bw (ccin 1) :level
-             (apply-notch :bias-type (n-bias-cos :bias-pos :bias-bw)))))
+             (apply-notch :bias-type (bias-cos :bias-pos :bias-bw)))))
   nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
   nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil
   nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil

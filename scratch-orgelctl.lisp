@@ -20,10 +20,8 @@
 
 (in-package :cl-orgelctl)
 
-(map nil #'funcall (aref (aref *midi-cc-responders* *global-midi-channel*) 0))
+(add-cc-responder 0 (lambda (val) (format t "~&ccnum: 0, val: ~a" val)))
 
-(untrace)
-(register-responders)
+(remove-channel-cc-responders 5)
 
-(parse-observed)
-(digest-route :orgel01 '(:bias-pos (ccin 0)) t)
+

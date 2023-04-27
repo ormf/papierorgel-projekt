@@ -21,9 +21,17 @@
 (in-package :cl-orgelctl)
 
 (setf *print-case* :downcase)
-(cm:cd (namestring (asdf:system-relative-pathname :papierorgel "")))
-(load-presets "./presets/route-presets.lisp")
-(load-presets "./presets/presets.lisp")
+(cm:cd (namestring (asdf:system-relative-pathname :papierorgel-projekt "")))
+
+(setf *orgel-presets-file*
+  (asdf:system-relative-pathname :papierorgel-projekt "presets/orgel-presets.lisp"))
+
+(setf *route-presets-file*
+    (asdf:system-relative-pathname :papierorgel-projekt "presets/route-presets.lisp"))
+
+
+(load-orgel-presets)
+(load-route-presets)
 
 (edit-preset-in-emacs (setf *curr-preset-nr* 0))
 

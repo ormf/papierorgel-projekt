@@ -2,7 +2,6 @@
 *** Orm Finnendahl
 
     papierorgel eigener Code.
-
 ** License
 
    Proprietär, (c) Orm Finnendahl. Nutzung nur mit ausdrücklicher

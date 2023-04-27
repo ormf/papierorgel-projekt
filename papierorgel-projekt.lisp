@@ -1,68 +1,17 @@
 ;;;; Scratchpad für papierorgel.lisp
 
-(unless (find-package :cl-orgelctl) (ql:quickload "papierorgel"))
-(in-package :ats-cuda)
+(unless (find-package :cl-orgelctl) (ql:quickload "papierorgel-projekt"))
 
-(progn
-  (defvar cl nil)
-  (defvar crt-cs6 nil)
-  (defvar said nil)
-  (defvar barock nil)
-
-  (tracker "clarinet.aif"
-	   'cl
-	   :start 0.0
-	   :hop-size 1/4
-	   :lowest-frequency 100.0
-	   :highest-frequency 20000.0
-	   :frequency-deviation 0.05
-	   :lowest-magnitude (db-amp -70)
-	   :SMR-continuity 0.7
-	   :track-length 6
-	   :min-segment-length 3
-	   :residual "/tmp/cl-res.snd"
-	   :verbose nil
-	   :debug nil)
-
-  (tracker "crt-cs6.snd" 
-	   'crt-cs6
-	   :start 0.1
-	   :lowest-frequency 500.0
-	   :highest-frequency 20000.0
-	   :frequency-deviation 0.15
-	   :window-cycles 4
-	   :window-type 'blackman-harris-4-1
-	   :hop-size 1/8
-	   :lowest-magnitude (db-amp -90)
-	   :amp-threshold -80
-	   :track-length 6
-	   :min-segment-length 3
-	   :last-peak-contribution 0.5
-	   :SMR-continuity 0.3
-	   :residual "/tmp/crt-cs6-res.snd"
-	   :verbose nil
-	   :debug nil
-	   :optimize t))
-
-(browser-play cl)
+(in-package :cl-orgelctl)
 
 (reconnect-midi)
 
-*midi-in1*
-
-(add-ats-cc-responder 2 (lambda (val) (setf ats-cuda::*bw* (* 10000 (expt 1/1000 val)))))
-(remove-ats-channel-cc-responders 5)
-
-(remove-ats-channel-cc-responders 5)
-
-(cl-orgelctl::remove-channel-cc-responders 5)
 (setf (incudine::logger-level) :warn)
-
-*midi-in1*
-(in-package #:cl-orgelctl)
 
 
 (defparameter *global-targets* nil)
+
+(permute)
 
 (setf *global-targets* '((level 1 1) (level 1 2) (level 2 1) (level 2 2) (level 1 3)
                          (level 1 5) (level 1 4) (level 2 11) (level 2 13) (level 2 3)
