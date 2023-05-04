@@ -7,3 +7,16 @@
    Proprietär, (c) Orm Finnendahl. Nutzung nur mit ausdrücklicher
    Genehmigung!
 
+** Installation
+
+   - Zuerst den pd patch der papierorgel herunterladen und mit pd
+     öffnen.
+
+   - =cd ~/quicklisp/local-projects=
+
+   -  =git clone https://github.com/ormf/papierorgel-projekt.git=
+
+   - Laden in slime mit =(ql:quickload :papierorgel-projekt)=
+
+   - In der Datei "papierorgel-projekt.lisp" finden sich
+     Nutzungsbeispiele.

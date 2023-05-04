@@ -1,13 +1,40 @@
 ;;;; Scratchpad für papierorgel.lisp
 
+
+;;; (sleep 0.5)
+
+;;; (ats-cuda::reconnect-midi)
+
+;;; *curr-state*
+
+
+;;; (orgel-ctl :orgel01 :level10 0.2)
+
 (unless (find-package :cl-orgelctl) (ql:quickload "papierorgel-projekt"))
 
 (in-package :cl-orgelctl)
 
-(reconnect-midi)
+(orgel-ctl :orgel01 :level01 0.5)
+
+(orgel-ctl :orgel01 :ramp-up 0.5)
+
+(gethash :level01 *observed*)
+
+(format nil "/~a/~a/~a" 'hallo :peng "Lydia")
+
+(format t "Hallo")
+
+(ccin 0)
+
+(ats-cuda::reconnect-midi)
 
 (setf (incudine::logger-level) :warn)
 
+(copy-orgel-preset *curr-state* (aref *orgel-presets* 0))
+
+(save-orgel-presets)
+
+(incudine::rt-stop)
 
 (defparameter *global-targets* nil)
 

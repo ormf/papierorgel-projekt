@@ -35,10 +35,3 @@
 
 (edit-preset-in-emacs (setf *curr-preset-nr* 0))
 
-(sleep 0.5)
-(ats-cuda::reconnect-midi)
-;;; *curr-state*
-
-
-;;; (orgel-ctl :orgel01 :level10 0.2)
-

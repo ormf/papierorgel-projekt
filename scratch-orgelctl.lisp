@@ -24,4 +24,11 @@
 
 (remove-channel-cc-responders 5)
 
+()
 
+(cm:events
+ (loop for x from 1 to 16 collect (cm:new cm:midi :time 0 :keynum (+ 40 (/ (ou:fv->ct x) 100)) :channel 2))
+ "/tmp/oton.svg"
+ :width 10000)
+
+(loop )
