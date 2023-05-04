@@ -9,7 +9,9 @@
 
 ** Installation
 
-   - Zuerst den pd patch der papierorgel herunterladen und mit pd
+   - jack starten
+   
+   - Den pd patch der Papierorgel herunterladen und mit pd
      öffnen.
 
    - =cd ~/quicklisp/local-projects=

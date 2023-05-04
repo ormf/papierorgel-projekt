@@ -28,6 +28,8 @@
 
 (ats-cuda::reconnect-midi)
 
+cl-orgelctl::*
+
 (setf (incudine::logger-level) :warn)
 
 (copy-orgel-preset *curr-state* (aref *orgel-presets* 0))
